@@ -28,6 +28,14 @@ Below are the details of each part in cron string in sequence:
 2. `/` : Slash represents increments. “0/15” in the seconds field means the seconds 0, 15, 30 and 45. Only numerical values are allowed before and after slash. eg: "1/20", "10/45" etc.
 3. `-` : A hyphen indicates a range. “15-18” in the hour field means the hours 15, 16, 17 and 18. Only numerical values are allowed before and after hyphen. eg: "1-20", "10-45" etc.
 4. `,` : A comma is used to separate multiple allowed values. “MON,WED,FRI” in the day_of_week field means the days Monday, Wednesday, and Friday.
+
+## Project Design Considerations:
+1. The `main.py` file is the main executor of the project.
+2. `ExpressionParser` class is the driver class
+3. `TimeComponent` class is parent class which is inherited by other specific time bound class. This class has methods to parse an expression in a particular time format.
+4. `MinuteComponent`, `HourComponent`, `DayOfMonthComponent`, `MonthComponent` and `DayOfComponent` inherits `TimeComponent` class. All details and static values are contained in respective child class.
+5. `CommandComponent` class is an independent class.
+6. Baisc validation for cron expression are also implemented in `TimeComponent` class.
    
 ## Example Command:
 `python3 main.py '*/15 0 1,15 * 1-5 /usr/bin/find'`
