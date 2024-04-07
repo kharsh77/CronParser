@@ -13,24 +13,18 @@ class TimeComponent:
     def parse(self, expression):
         if expression == "*":
             self.star_expression()
-            return
         elif expression.find("/")!=-1:
             self.slash_expression(expression)
-            return
         elif expression.find(",")!=-1:
             self.comma_expression(expression)
-            return
         elif expression.find("-")!=-1:
             self.hyphen_expression(expression)
-            return
         else:
             try:
                 numeral = int(expression)
                 self.numeral_expression(expression)
-                return
             except:
                 self.string_expression(expression)
-                return
     
     def star_expression(self):
         self.current_values = [x for x in range(self.numeral_range.start, self.numeral_range.end+1)]
