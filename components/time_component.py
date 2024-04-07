@@ -66,7 +66,7 @@ class TimeComponent:
             self.validate_correct_values(val_start)
             self.validate_correct_values(val_end)
         except:
-            raise Exception(f"Invalid slash expression: {expression}")
+            raise Exception(f"Invalid hyphen expression: {expression}")
         
         if len(values)!=2:
             raise Exception(f"Invalid hyphen expression: {expression}")
