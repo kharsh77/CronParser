@@ -13,7 +13,7 @@ class ExpressionParser:
         self.parse_expression(expression)
 
     def parse_expression(self, exp):
-        is_debug = True
+        is_debug = False
         if is_debug:
             exp_arr = exp.split(" ")
             for i in range(len(ExpressionParser.EXPRESSION_SUPPORTED)):
