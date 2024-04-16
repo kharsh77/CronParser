@@ -1,5 +1,9 @@
 import unittest
 from expression_parser import ExpressionParser
+from datetime import datetime
+
+datetime_str = '30/04/22 21:30:00'
+time_obj= datetime.strptime(datetime_str, '%d/%m/%y %H:%M:%S')
 
 class TestClass(unittest.TestCase):
     def test_expression_1(self):

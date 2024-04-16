@@ -77,11 +77,11 @@ class TimeComponent:
     
     def numeral_expression(self, expression):
         self.validate_correct_values(int(expression))
-        self.current_values = int(expression)
+        self.current_values = [int(expression)]
     
     def string_expression(self, expression):
         self.validate_correct_values(expression)
-        self.current_values = expression
+        self.current_values = [expression]
     
     def get_values(self):
         return self.current_values
