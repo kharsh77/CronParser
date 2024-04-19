@@ -13,19 +13,13 @@ class ExpressionParser:
         self.parse_expression(expression)
 
     def parse_expression(self, exp):
-        is_debug = False
-        if is_debug:
+        try:
             exp_arr = exp.split(" ")
             for i in range(len(ExpressionParser.EXPRESSION_SUPPORTED)):
                 self.expression[i]=ExpressionParser.EXPRESSION_SUPPORTED[i](exp_arr[i])
-        else:
-            try:
-                exp_arr = exp.split(" ")
-                for i in range(len(ExpressionParser.EXPRESSION_SUPPORTED)):
-                    self.expression[i]=ExpressionParser.EXPRESSION_SUPPORTED[i](exp_arr[i])
-            except Exception as ex:
-                print(f'Exception: {str(ex)}')
-                self.expression = [None for _ in range(len(ExpressionParser.EXPRESSION_SUPPORTED))]     
+        except Exception as ex:
+            print(f'Exception: {str(ex)}')
+            self.expression = [None for _ in range(len(ExpressionParser.EXPRESSION_SUPPORTED))]     
 
     def expand(self):
         out = []
